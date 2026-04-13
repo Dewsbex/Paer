@@ -29,17 +29,19 @@ Before starting any work in this project, Claude must:
 - Supabase auth configuration (Steven — dashboard)
 
 ## Next 3 Actions (in priority order)
-1. **Fix Cloudflare Pages build** — set root dir `frontend`, build output `.svelte-kit/cloudflare`, add env vars PUBLIC_SUPABASE_URL + PUBLIC_SUPABASE_ANON_KEY, add custom domain paer.dewsbery.uk
-2. **Enable Supabase magic link auth** — Supabase dashboard → Auth → set site URL to https://paer.dewsbery.uk, enable email provider
-3. **Supabase Edge Function for RSS parsing** — parse feed XML, upsert articles into database
+1. **Fix Cloudflare Pages build** (Steven, dashboard) — set root dir `frontend`, build output `.svelte-kit/cloudflare`, add env vars, add custom domain paer.dewsbery.uk
+2. **Enable Supabase magic link auth** (Steven, dashboard) — Auth → set site URL to https://paer.dewsbery.uk, enable email provider, add redirect URL
+3. **Test end-to-end** — sign up, add a feed, see articles appear, toggle dark mode, test on mobile
 
 ---
 
 ## Blockers
 | Blocker | Impact | Owner | ETA |
 |---------|--------|-------|-----|
-| Cloudflare Pages not yet connected to repo | No auto-deploy, no live URL | Steven (dashboard) | Today |
-| dewsbery.uk DNS not yet configured | No custom domain | Steven (Cloudflare DNS) | Today |
+| Cloudflare Pages build config | Set root dir `frontend`, output `.svelte-kit/cloudflare` | Steven (dashboard) | 5 min |
+| Cloudflare Pages env vars | PUBLIC_SUPABASE_URL + PUBLIC_SUPABASE_ANON_KEY | Steven (dashboard) | 2 min |
+| Custom domain | Add paer.dewsbery.uk in Pages custom domains | Steven (dashboard) | 2 min |
+| Supabase Auth | Enable email magic link, set site URL + redirect URL | Steven (dashboard) | 5 min |
 
 ---
 

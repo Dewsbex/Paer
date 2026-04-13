@@ -7,6 +7,10 @@ Types: DECISION | CHANGE | FIX | ADD | REMOVE | DEFER
 ---
 
 <!-- Entries appended below, newest at top -->
+[2026-04-13] FIX RLS policies: wrapped auth.uid() in (select ...) to prevent per-row re-evaluation. All WARN advisories resolved.
+[2026-04-13] ADD Missing FK indexes: annotations.article_id, cluster_articles.article_id, flags.article_id, read_status.article_id, subscriptions.feed_id.
+[2026-04-13] ADD Favicon (sieve mark SVG), Cloudflare Pages _headers (security headers).
+[2026-04-13] ADD Supabase Edge Functions deployed: parse-feed (RSS/Atom parser) + poll-feeds (cron orchestrator).
 [2026-04-13] ADD Reading UI: feeds page with time-window selector, article cards (compact/comfortable), mobile reading pane, "Nothing missed. Nothing owed."
 [2026-04-13] ADD Feed subscription: AddFeed component with URL input + OPML import, bottom sheet mobile / modal desktop
 [2026-04-13] ADD Auth flow: magic link login, callback handler, session store, protected routes

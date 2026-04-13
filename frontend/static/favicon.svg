@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Paer Sieve Mark — signal among noise -->
+  <!-- Row 0 -->
+  <rect x="0" y="0" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="0" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="0" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <!-- Row 1 -->
+  <rect x="0" y="14.5" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="14.5" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="14.5" width="11" height="11" rx="2" fill="#B5521E" stroke="#B5521E" stroke-width="1.4"/>
+  <!-- Row 2 -->
+  <rect x="0" y="29" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="29" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="29" width="11" height="11" rx="2" fill="none" stroke="#1A1A18" stroke-width="1.4" opacity="0.22"/>
+</svg>
