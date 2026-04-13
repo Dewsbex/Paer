@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Paer Sieve Mark — dark mode -->
+  <rect x="0" y="0" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="0" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="0" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="0" y="14.5" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="14.5" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="14.5" width="11" height="11" rx="2" fill="#D4793A" stroke="#D4793A" stroke-width="1.4"/>
+  <rect x="0" y="29" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="14.5" y="29" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+  <rect x="29" y="29" width="11" height="11" rx="2" fill="none" stroke="#E4E4DC" stroke-width="1.4" opacity="0.22"/>
+</svg>
