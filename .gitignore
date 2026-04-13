@@ -13,6 +13,7 @@ venv/
 # Build
 frontend/build/
 frontend/.svelte-kit/
+frontend/.wrangler/
 dist/
 
 # Docker
