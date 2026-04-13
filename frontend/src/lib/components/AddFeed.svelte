@@ -54,6 +54,15 @@
 
 			if (subErr) throw subErr;
 
+			// Trigger immediate feed parse so articles appear
+			try {
+				await supabase.functions.invoke('parse-feed', {
+					body: { feed_id: feed.id, url }
+				});
+			} catch {
+				// Non-blocking — articles will appear on next poll if this fails
+			}
+
 			feedUrl = '';
 			onadded();
 			onclose();
@@ -96,6 +105,10 @@
 					await supabase
 						.from('subscriptions')
 						.upsert({ user_id: ($user as any)?.id, feed_id: feed.id });
+					// Fire-and-forget: parse each feed in background
+					supabase.functions.invoke('parse-feed', {
+						body: { feed_id: feed.id, url }
+					}).catch(() => {});
 					added++;
 				}
 			}
