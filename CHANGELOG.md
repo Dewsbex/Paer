@@ -7,6 +7,10 @@ Types: DECISION | CHANGE | FIX | ADD | REMOVE | DEFER
 ---
 
 <!-- Entries appended below, newest at top -->
+[2026-04-13] ADD Reading UI: feeds page with time-window selector, article cards (compact/comfortable), mobile reading pane, "Nothing missed. Nothing owed."
+[2026-04-13] ADD Feed subscription: AddFeed component with URL input + OPML import, bottom sheet mobile / modal desktop
+[2026-04-13] ADD Auth flow: magic link login, callback handler, session store, protected routes
+[2026-04-13] ADD SvelteKit scaffolded: Cloudflare adapter, Tailwind with full brand palette, PaerLogo Svelte 5 component, dark mode, safe area insets
 [2026-04-13] ADD Supabase database schema: feeds, articles, subscriptions, read_status, annotations, clusters, flags. RLS enabled.
 [2026-04-13] ADD Supabase project created: moarpiqwynhuwxkfrzlr (eu-west-2 London, free tier).
 [2026-04-13] DECISION Architecture pivot: serverless (Cloudflare Pages + Supabase) replaces VPS/Docker/FastAPI. ADR-007 supersedes ADR-002.

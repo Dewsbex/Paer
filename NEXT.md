@@ -25,13 +25,13 @@ Before starting any work in this project, Claude must:
 - [2026-04-13] Supabase project created (eu-west-2 London) with full schema + RLS
 
 ## In Progress
-- Cloudflare Pages deployment setup
-- SvelteKit frontend scaffolding
+- Cloudflare Pages build config fix (Steven — dashboard)
+- Supabase auth configuration (Steven — dashboard)
 
 ## Next 3 Actions (in priority order)
-1. **Connect Cloudflare Pages to GitHub repo** — auto-deploy SvelteKit on push, set paer.dewsbery.uk as custom domain
-2. **SvelteKit scaffold** — app shell with Supabase client, auth (magic link), theme toggle, PaerLogo component, mobile-first layout (2–3 hrs)
-3. **Feed subscription + reading UI** — add feed URL, fetch articles via Supabase Edge Function, display in time-window filtered list (3–4 hrs)
+1. **Fix Cloudflare Pages build** — set root dir `frontend`, build output `.svelte-kit/cloudflare`, add env vars PUBLIC_SUPABASE_URL + PUBLIC_SUPABASE_ANON_KEY, add custom domain paer.dewsbery.uk
+2. **Enable Supabase magic link auth** — Supabase dashboard → Auth → set site URL to https://paer.dewsbery.uk, enable email provider
+3. **Supabase Edge Function for RSS parsing** — parse feed XML, upsert articles into database
 
 ---
 
@@ -52,10 +52,10 @@ Architecture has pivoted to serverless: Cloudflare Pages (frontend) + Supabase (
 
 | # | Task | Est. Time | Status |
 |---|------|-----------|--------|
-| 1 | Connect Cloudflare Pages + DNS (paer.dewsbery.uk) | 15 min | ⬜ |
-| 2 | SvelteKit scaffold with Supabase client + auth | 2–3 hrs | ⬜ |
-| 3 | Mobile-first app shell (nav, theme toggle, logo) | 2–3 hrs | ⬜ |
-| 4 | Feed subscription UI + Supabase Edge Function for RSS parsing | 3–4 hrs | ⬜ |
-| 5 | Article reading UI (time-window filtering, article cards, reading pane) | 3–4 hrs | ⬜ |
-| 6 | OPML import | 1–2 hrs | ⬜ |
-| 7 | Cloudflare Worker cron for feed polling | 2–3 hrs | ⬜ |
+| 1 | Connect Cloudflare Pages + DNS (paer.dewsbery.uk) | 15 min | ⬜ Steven — set root dir to `frontend`, build output `.svelte-kit/cloudflare` |
+| 2 | SvelteKit scaffold with Supabase client + auth | 2–3 hrs | ✅ Done |
+| 3 | Mobile-first app shell (nav, theme toggle, logo) | 2–3 hrs | ✅ Done |
+| 4 | Feed subscription UI + OPML import | 3–4 hrs | ✅ Done |
+| 5 | Article reading UI (time-window filtering, article cards, reading pane) | 3–4 hrs | ✅ Done |
+| 6 | OPML import | 1–2 hrs | ✅ Done (in AddFeed component) |
+| 7 | Cloudflare Worker cron for feed polling | 2–3 hrs | ⬜ Next |

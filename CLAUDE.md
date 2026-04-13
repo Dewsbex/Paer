@@ -99,9 +99,9 @@ If at any point the current work diverges from what NEXT.md says should be happe
 | Layer | Language | Framework | Lint/Check Command |
 |-------|----------|-----------|-------------------|
 | Frontend | TypeScript/Svelte | SvelteKit + Tailwind | `cd frontend && npm run check` |
-| Backend | Python 3.11+ | FastAPI | `cd backend && python -m py_compile app/main.py` |
-| Database | SQL | PostgreSQL via SQLAlchemy | Alembic migrations |
-| Containers | YAML | Docker Compose | `docker compose config --quiet` |
+| Database | SQL | PostgreSQL (Supabase) | Supabase migrations |
+| Edge Functions | TypeScript | Supabase Edge Functions (Deno) | `supabase functions serve` |
+| Workers | TypeScript | Cloudflare Workers | `wrangler dev` |
 
 ### 2.2 Mobile-First Mandate
 - All CSS written mobile-first: base styles for 320px+, then `@media (min-width: ...)` for larger
