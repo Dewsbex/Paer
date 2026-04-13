@@ -7,6 +7,10 @@ Types: DECISION | CHANGE | FIX | ADD | REMOVE | DEFER
 ---
 
 <!-- Entries appended below, newest at top -->
+[2026-04-13] ADD Supabase database schema: feeds, articles, subscriptions, read_status, annotations, clusters, flags. RLS enabled.
+[2026-04-13] ADD Supabase project created: moarpiqwynhuwxkfrzlr (eu-west-2 London, free tier).
+[2026-04-13] DECISION Architecture pivot: serverless (Cloudflare Pages + Supabase) replaces VPS/Docker/FastAPI. ADR-007 supersedes ADR-002.
+[2026-04-13] ADD GitHub repo created and pushed: github.com/Dewsbex/Paer
 [2026-04-13] ADD Project-rails v3.0 installed. Session continuity protocols active.
 [2026-04-13] ADD Brand mandate created (docs/BRAND.md) — all external outputs require Paer logo.
 [2026-04-13] ADD PaerLogo.svelte component and sieve mark SVGs created.

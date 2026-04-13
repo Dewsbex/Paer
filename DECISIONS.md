@@ -62,3 +62,30 @@
 **Context:** Needed a visual identity that communicates "signal from noise" and differentiates from generic tech branding.
 **Decision:** Sieve Mark (3×3 grid, one highlighted cell) paired with accent ligature wordmark (pær, æ in accent colour). Three scales: full lockup, wordmark only, mark only. Dark and light variants. Brand mandate in docs/BRAND.md governs all external outputs.
 **Consequences:** Every external-facing component must include the logo per BRAND.md. The æ character requires Literata font loaded. URLs and domains use plain "paer" spelling.
+
+---
+
+## ADR-007 — Serverless architecture: Cloudflare Pages + Supabase (supersedes ADR-002)
+
+**Status:** Accepted (supersedes ADR-002)
+**Date:** 2026-04-13
+**Context:** Original plan was SvelteKit + FastAPI + PostgreSQL + Celery + Redis + Docker on a VPS. But the founder has Cloudflare and Supabase already connected. A VPS requires babysitting (security patches, server monitoring, SSH, nginx, Docker). Solo founder's time is better spent on product, not infrastructure.
+**Decision:** Serverless stack eliminates VPS entirely:
+- Frontend: Cloudflare Pages (SvelteKit, auto-deploys from GitHub, global CDN)
+- Database + Auth: Supabase (PostgreSQL, magic link auth, RLS, free tier)
+- Feed Polling: Cloudflare Workers + Cron Triggers (scheduled feed fetching)
+- AI/Clustering: Supabase Edge Functions
+- Domain: paer.dewsbery.uk via Cloudflare DNS
+**Consequences:** No Docker, no VPS, no Celery, no Redis, no server babysitting. $0/month on free tiers. Auto-deploys on git push. Global CDN for mobile-first performance. Trade-off: backend logic moves from Python (FastAPI) to TypeScript (Workers/Edge Functions). AI clustering may need a different approach than sentence-transformers (which is Python). Supabase pgvector extension can handle embeddings natively in PostgreSQL.
+
+**Infrastructure created:**
+- Supabase project: `moarpiqwynhuwxkfrzlr` (eu-west-2, London)
+- Supabase URL: https://moarpiqwynhuwxkfrzlr.supabase.co
+- Database schema: feeds, articles, subscriptions, read_status, annotations, clusters, cluster_articles, flags
+- RLS enabled on all tables
+
+**Status:** Accepted
+**Date:** 2026-04-13
+**Context:** Needed a visual identity that communicates "signal from noise" and differentiates from generic tech branding.
+**Decision:** Sieve Mark (3×3 grid, one highlighted cell) paired with accent ligature wordmark (pær, æ in accent colour). Three scales: full lockup, wordmark only, mark only. Dark and light variants. Brand mandate in docs/BRAND.md governs all external outputs.
+**Consequences:** Every external-facing component must include the logo per BRAND.md. The æ character requires Literata font loaded. URLs and domains use plain "paer" spelling.

@@ -20,40 +20,42 @@ Before starting any work in this project, Claude must:
 - [2026-04-13] Brand identity finalised: Sieve Mark + Accent Ligature (pær)
 - [2026-04-13] Design mockup v2 complete (dark mode, density toggle, search, accessible fonts)
 - [2026-04-13] Project-rails installed, repo structure scaffolded
+- [2026-04-13] GitHub repo created and pushed: github.com/Dewsbex/Paer
+- [2026-04-13] Architecture pivot: serverless (Cloudflare Pages + Supabase)
+- [2026-04-13] Supabase project created (eu-west-2 London) with full schema + RLS
 
 ## In Progress
-- Repository creation and initial push
+- Cloudflare Pages deployment setup
+- SvelteKit frontend scaffolding
 
 ## Next 3 Actions (in priority order)
-1. **Create GitHub repo and push scaffold** — user creates repo, pushes all files
-2. **Sprint 1, Task 1: Project scaffolding** — SvelteKit + FastAPI + PostgreSQL + Redis + Docker Compose, all containers talking, hello world on both ends (2–3 hrs)
-3. **Sprint 1, Task 2: Database models** — Users, Feeds, Articles, Subscriptions with Alembic migrations (1–2 hrs)
+1. **Connect Cloudflare Pages to GitHub repo** — auto-deploy SvelteKit on push, set paer.dewsbery.uk as custom domain
+2. **SvelteKit scaffold** — app shell with Supabase client, auth (magic link), theme toggle, PaerLogo component, mobile-first layout (2–3 hrs)
+3. **Feed subscription + reading UI** — add feed URL, fetch articles via Supabase Edge Function, display in time-window filtered list (3–4 hrs)
 
 ---
 
 ## Blockers
 | Blocker | Impact | Owner | ETA |
 |---------|--------|-------|-----|
-| GitHub repo not yet created | Can't push scaffold | Steven | Today |
-| Domain not registered (paer.app / getpaer.com) | No public URL | Steven | This week |
+| Cloudflare Pages not yet connected to repo | No auto-deploy, no live URL | Steven (dashboard) | Today |
+| dewsbery.uk DNS not yet configured | No custom domain | Steven (Cloudflare DNS) | Today |
 
 ---
 
 ## Context for Next Session
-Project Paer is an RSS feed reader built for synthesis. The brief, brand identity, design system, and project protocols are all complete. The repo scaffold exists locally with CLAUDE.md, BRAND.md, logo components, and directory structure. Next session should begin with the user confirming the repo is created and pushed, then immediately start Sprint 1 Task 1 (Docker Compose + SvelteKit + FastAPI scaffolding). The design mockup at paer-design-revised.jsx is the reference for all UI work. Mobile-first is mandatory — all CSS starts at 320px.
+Architecture has pivoted to serverless: Cloudflare Pages (frontend) + Supabase (database + auth). No VPS, no Docker, no FastAPI. The Supabase project (moarpiqwynhuwxkfrzlr) is live in London with the full schema deployed (feeds, articles, subscriptions, annotations, clusters, flags — all with RLS). Next session should connect Cloudflare Pages to the GitHub repo for auto-deploy, scaffold the SvelteKit app with Supabase client, and build the first reading UI. Everything is mobile-first — base styles at 320px. The design reference is the paer-design-revised.jsx mockup.
 
 ---
 
-## Sprint 1 Full Task List (Reference)
+## Sprint 1 Full Task List (Revised for Serverless)
 
 | # | Task | Est. Time | Status |
 |---|------|-----------|--------|
-| 1 | Project scaffolding (Docker + SvelteKit + FastAPI) | 2–3 hrs | ⬜ |
-| 2 | Database models (Users, Feeds, Articles, Subscriptions) | 1–2 hrs | ⬜ |
-| 3 | RSS/Atom feed parser (Celery task) | 3–4 hrs | ⬜ |
-| 4 | Auth — magic link | 2–3 hrs | ⬜ |
-| 5 | Feed subscription API | 2–3 hrs | ⬜ |
-| 6 | Reading UI (mobile-first, article cards, reading pane) | 4–5 hrs | ⬜ |
-| 7 | Time-window filtering (15m/1h/24h/3d) | 1–2 hrs | ⬜ |
-| 8 | OPML import | 1–2 hrs | ⬜ |
-| 9 | Docker production config | 2–3 hrs | ⬜ |
+| 1 | Connect Cloudflare Pages + DNS (paer.dewsbery.uk) | 15 min | ⬜ |
+| 2 | SvelteKit scaffold with Supabase client + auth | 2–3 hrs | ⬜ |
+| 3 | Mobile-first app shell (nav, theme toggle, logo) | 2–3 hrs | ⬜ |
+| 4 | Feed subscription UI + Supabase Edge Function for RSS parsing | 3–4 hrs | ⬜ |
+| 5 | Article reading UI (time-window filtering, article cards, reading pane) | 3–4 hrs | ⬜ |
+| 6 | OPML import | 1–2 hrs | ⬜ |
+| 7 | Cloudflare Worker cron for feed polling | 2–3 hrs | ⬜ |
