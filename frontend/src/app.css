@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/* Prevent iOS text size adjust */
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		@apply bg-paer-bg text-paer-text min-h-screen;
+		/* Safe area insets for notched phones */
+		padding-top: env(safe-area-inset-top);
+		padding-bottom: env(safe-area-inset-bottom);
+		padding-left: env(safe-area-inset-left);
+		padding-right: env(safe-area-inset-right);
+	}
+
+	/* Dark mode */
+	html.dark body {
+		@apply bg-paer-bg-dark text-paer-text-dark;
+	}
+
+	/* Reduced motion */
+	@media (prefers-reduced-motion: reduce) {
+		*, *::before, *::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	/* Selection colour */
+	::selection {
+		background: #B5521E20;
+	}
+
+	html.dark ::selection {
+		background: #D4793A30;
+	}
+
+	/* Scrollbar styling */
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-paer-border rounded-full;
+	}
+
+	html.dark ::-webkit-scrollbar-thumb {
+		@apply bg-paer-border-dark;
+	}
+}
