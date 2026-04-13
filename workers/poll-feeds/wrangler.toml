@@ -1,0 +1,19 @@
+name = "paer-poll-feeds"
+main = "src/index.ts"
+compatibility_date = "2026-04-01"
+workers_dev = false
+
+# Cron trigger — every 15 minutes.
+# The poll-feeds Edge Function filters to feeds not refreshed in the last 30 min,
+# so 15-min cadence gives headroom without duplicate work.
+[triggers]
+crons = ["*/15 * * * *"]
+
+# Non-secret configuration.
+# Secrets (CRON_SECRET, WORKER_TRIGGER_SECRET) are set via `wrangler secret put`.
+[vars]
+SUPABASE_FUNCTIONS_URL = "https://moarpiqwynhuwxkfrzlr.supabase.co/functions/v1"
+POLL_FUNCTION_SLUG = "poll-feeds"
+
+[observability]
+enabled = true

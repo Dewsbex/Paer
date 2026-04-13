@@ -7,6 +7,7 @@ Types: DECISION | CHANGE | FIX | ADD | REMOVE | DEFER
 ---
 
 <!-- Entries appended below, newest at top -->
+[2026-04-13] ADD Cloudflare Worker `paer-poll-feeds` scaffolded in `workers/poll-feeds/` — cron `*/15 * * * *` invokes the `poll-feeds` Edge Function via `x-cron-secret`; manual trigger via `WORKER_TRIGGER_SECRET`. .env.example updated.
 [2026-04-13] FIX RLS policies: wrapped auth.uid() in (select ...) to prevent per-row re-evaluation. All WARN advisories resolved.
 [2026-04-13] ADD Missing FK indexes: annotations.article_id, cluster_articles.article_id, flags.article_id, read_status.article_id, subscriptions.feed_id.
 [2026-04-13] ADD Favicon (sieve mark SVG), Cloudflare Pages _headers (security headers).

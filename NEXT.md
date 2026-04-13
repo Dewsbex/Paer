@@ -23,15 +23,17 @@ Before starting any work in this project, Claude must:
 - [2026-04-13] GitHub repo created and pushed: github.com/Dewsbex/Paer
 - [2026-04-13] Architecture pivot: serverless (Cloudflare Pages + Supabase)
 - [2026-04-13] Supabase project created (eu-west-2 London) with full schema + RLS
+- [2026-04-13] Cloudflare Worker `paer-poll-feeds` scaffolded (cron `*/15 * * * *` → `poll-feeds` Edge Function)
 
 ## In Progress
 - Cloudflare Pages build config fix (Steven — dashboard)
 - Supabase auth configuration (Steven — dashboard)
+- paer-poll-feeds deploy: `wrangler secret put CRON_SECRET` + `WORKER_TRIGGER_SECRET`, then `wrangler deploy`
 
 ## Next 3 Actions (in priority order)
 1. **Fix Cloudflare Pages build** (Steven, dashboard) — set root dir `frontend`, build output `.svelte-kit/cloudflare`, add env vars, add custom domain paer.dewsbery.uk
 2. **Enable Supabase magic link auth** (Steven, dashboard) — Auth → set site URL to https://paer.dewsbery.uk, enable email provider, add redirect URL
-3. **Test end-to-end** — sign up, add a feed, see articles appear, toggle dark mode, test on mobile
+3. **Deploy paer-poll-feeds worker** — set `CRON_SECRET` on both worker and edge function env, `wrangler deploy`, then manually trigger to confirm articles land in Supabase
 
 ---
 
@@ -60,4 +62,4 @@ Architecture has pivoted to serverless: Cloudflare Pages (frontend) + Supabase (
 | 4 | Feed subscription UI + OPML import | 3–4 hrs | ✅ Done |
 | 5 | Article reading UI (time-window filtering, article cards, reading pane) | 3–4 hrs | ✅ Done |
 | 6 | OPML import | 1–2 hrs | ✅ Done (in AddFeed component) |
-| 7 | Cloudflare Worker cron for feed polling | 2–3 hrs | ⬜ Next |
+| 7 | Cloudflare Worker cron for feed polling | 2–3 hrs | 🟡 Scaffolded (`workers/poll-feeds/`) — needs `wrangler deploy` + secrets |
