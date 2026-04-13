@@ -1,6 +1,14 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import { theme } from '$lib/stores/theme';
+	import { user, initSession } from '$lib/stores/session';
 	import PaerLogo from '$lib/components/PaerLogo.svelte';
+
+	onMount(async () => {
+		await initSession();
+		if ($user) goto('/feeds');
+	});
 </script>
 
 <svelte:head>
@@ -47,16 +55,14 @@
 				v0.1 — building in public
 			</span>
 			<a 
-				href="https://github.com/Dewsbex/Paer"
-				target="_blank"
-				rel="noopener noreferrer"
+				href="/login"
 				class="font-ui text-sm font-medium text-paer-accent dark:text-paer-accent-dark 
 					   border border-paer-accent dark:border-paer-accent-dark 
 					   rounded px-4 py-2 
 					   hover:bg-paer-accent-soft dark:hover:bg-paer-accent-soft-dark 
 					   transition-colors min-h-touch flex items-center"
 			>
-				Follow on GitHub
+				Sign in
 			</a>
 		</div>
 	</main>
